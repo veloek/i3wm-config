@@ -32,10 +32,10 @@ keyboard_layout() {
 
 # Print song currently playing
 now_playing() {
-    PLAYER=`playerctl metadata --format '{{playerName}}' |tr [:lower:] [:upper:]`
-    TITLE=`playerctl metadata --format '{{title}}'`
-    ARTIST=`playerctl metadata --format '{{artist}}'`
-    STATUS=`playerctl metadata --format '{{status}}'`
+    PLAYER=`playerctl --ignore-player=chromium metadata --format '{{playerName}}' |tr [:lower:] [:upper:]`
+    TITLE=`playerctl --ignore-player=chromium metadata --format '{{title}}'`
+    ARTIST=`playerctl --ignore-player=chromium metadata --format '{{artist}}'`
+    STATUS=`playerctl --ignore-player=chromium metadata --format '{{status}}'`
 
     if [ -n "$STATUS" ]
     then
